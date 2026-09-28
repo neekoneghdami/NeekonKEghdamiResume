@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neekon Eghdami | Mechanical Engineering Student</title>
+<meta name="description" content="Resume of Neekon Eghdami, 2nd year Mechanical Engineering student at the University of Alberta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f2b3f; --bg2:#163a55; --line:#5f89a8; --ink:#eaf3f8; --mute:#a9c2d3; --acc:#5fe3a1; --accInk:#06261a;
+  --head:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --body:"Barlow",system-ui,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font:400 1.075rem/1.6 var(--body); color:var(--ink); background:var(--bg);
+  background-image:linear-gradient(rgba(95,137,168,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(95,137,168,.14) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:5;background:rgba(15,43,63,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px 22px;align-items:center;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+nav b{font:700 1.3rem var(--head);letter-spacing:.02em;margin-right:auto}
+nav a{text-decoration:none;color:var(--mute);font-weight:500}
+nav a:hover{color:var(--acc)}
+section{padding:72px 0 8px}
+h2{font:600 2.1rem/1.1 var(--head);letter-spacing:.01em;margin-bottom:26px;display:flex;align-items:center;gap:16px}
+h2::after{content:"";flex:1;border-top:1px dashed var(--line)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:center;min-height:calc(100vh - 60px);padding:32px 0}
+h1{font:700 clamp(3.2rem,9vw,6rem)/.95 var(--head);letter-spacing:.005em}
+.role{font:500 1.5rem var(--head);color:var(--acc);margin:16px 0 14px}
+.hero p{max-width:34em;color:var(--mute)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{font:600 1rem var(--body);padding:11px 20px;border-radius:4px;border:2px solid var(--acc);background:var(--acc);color:var(--accInk);cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--acc)}
+.btn:hover{filter:brightness(1.1)}
+.gears{width:100%;height:auto;overflow:visible}
+.gears path,.gears circle{fill:none;stroke:var(--ink);stroke-width:2;vector-effect:non-scaling-stroke}
+.gears .b path,.gears .b circle{stroke:var(--acc)}
+.gears text{fill:var(--mute);font:500 13px var(--body)}
+.hint{text-align:center;color:var(--mute);font-size:.9rem;margin-top:6px}
+
+/* cards */
+.panel{background:rgba(22,58,85,.78);border:1px solid var(--line);border-radius:4px}
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.edu .panel{padding:20px 22px}
+.edu h3,.cert h3{font:600 1.35rem/1.2 var(--head)}
+.edu span,.meta{color:var(--mute);font-size:.95rem}
+
+.filters,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{font:500 .95rem var(--body);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 16px;cursor:pointer}
+.chip:hover{border-color:var(--acc)}
+.chip[aria-pressed="true"]{background:var(--acc);color:var(--accInk);border-color:var(--acc)}
+
+.timeline{border-left:2px solid var(--line);padding-left:26px;display:grid;gap:14px}
+.timeline details{position:relative}
+.timeline details::before{content:"";position:absolute;left:-35px;top:22px;width:12px;height:12px;background:var(--bg);border:2px solid var(--acc);border-radius:50%}
+.timeline details[open]::before{background:var(--acc)}
+summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary strong{font:600 1.35rem/1.2 var(--head)}
+summary small{color:var(--mute);font-size:.95rem}
+summary::after{content:"+";font:600 1.4rem var(--head);color:var(--acc);margin-left:auto}
+details[open] summary::after{content:"\2212"}
+.timeline ul{padding:0 22px 18px 42px;color:var(--mute)}
+.timeline li{margin-top:6px}
+.tag{font-size:.8rem;border:1px solid var(--acc);color:var(--acc);border-radius:3px;padding:0 7px;margin-left:8px;vertical-align:middle}
+
+.skillbox{padding:22px;min-height:110px;display:flex;gap:10px;flex-wrap:wrap;align-content:flex-start}
+.skillbox span{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:6px 14px}
+
+.cert{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.cert .panel{padding:20px 22px}
+.cert p{color:var(--mute);margin-top:6px}
+
+/* title block */
+.tb{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);background:var(--bg)}
+.tb div{padding:12px 16px;border:1px solid var(--line)}
+.tb small{display:block;color:var(--mute);font-size:.85rem}
+.tb .wide{grid-column:span 2}
+.tb button{margin-top:8px;padding:5px 14px;font-size:.9rem}
+footer{padding:36px 0 48px;color:var(--mute);font-size:.9rem}
+
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .tb{grid-template-columns:1fr}.tb .wide{grid-column:auto}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <b>N. Eghdami</b>
+    <a href="#about">About</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="hero" id="top">
+    <div>
+      <h1>Neekon K Eghdami</h1>
+      <div class="role">Mechanical Engineering Student</div>
+      <p>2nd year at the University of Alberta with a strong interest in mechanical design and systems.</p>
+      <div class="btns">
+        <a class="btn" href="#experience">See my experience</a>
+        <button class="btn ghost" id="copyMail" type="button">Copy email</button>
+      </div>
+    </div>
+    <div>
+      <svg class="gears" viewBox="0 0 330 250" role="img" aria-label="Two meshing gears that turn as you scroll">
+        <g id="gA"></g><g class="b" id="gB"></g>
+        <text x="110" y="244" text-anchor="middle">Gear A</text>
+        <text x="255" y="244" text-anchor="middle">Gear B, 2x speed</text>
+      </svg>
+      <p class="hint">Scroll to turn the gears.</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p style="max-width:44em">Aspiring and determined 2nd year mechanical engineer ready to explore opportunities and apply critical thinking, collaboration, and problem solving. Strong interest in mechanical design and systems.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="panel"><h3>University of Alberta</h3><span>Edmonton, AB</span><p>Bachelor of Science in Mechanical Engineering, 2nd year</p></div>
+      <div class="panel"><h3>Sir Winston Churchill High School</h3><span>Calgary, AB</span><p>High School Diploma, completed</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience and development</h2>
+    <div class="filters" role="group" aria-label="Filter experience">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-f="project" aria-pressed="false">Projects</button>
+      <button class="chip" type="button" data-f="course" aria-pressed="false">Courses</button>
+    </div>
+    <div class="timeline">
+      <details class="panel" data-t="project" open>
+        <summary><strong>Elastic Powered Car <span class="tag">University project</span></strong><small>Feb 2026 to Apr 2026</small></summary>
+        <ul>
+          <li>Worked with fellow engineering students to build an elastic-powered car, putting in time during and after class so it met performance requirements.</li>
+          <li>Learned how a professional engineering environment runs through constant team checkups and work sessions.</li>
+        </ul>
+      </details>
+      <details class="panel" data-t="course">
+        <summary><strong>MATLAB Onramp <span class="tag">Online course</span></strong><small>Sep 2026</small></summary>
+        <ul>
+          <li>Completed fundamental MATLAB training, including variables and arrays.</li>
+          <li>Built practical skills in MATLAB for engineering calculations, problem solving, and data analysis.</li>
+        </ul>
+      </details>
+      <details class="panel" data-t="course">
+        <summary><strong>Google Data Analytics <span class="tag">Online course</span></strong><small>Jun 2026 to Aug 2026</small></summary>
+        <ul>
+          <li>Managed large datasets and wrote queries using SQL and Python.</li>
+          <li>Strengthened programming fundamentals and analytical problem solving.</li>
+        </ul>
+      </details>
+      <details class="panel" data-t="project">
+        <summary><strong>Revit Design <span class="tag">School project</span></strong><small>Nov 2023 to Dec 2023</small></summary>
+        <ul>
+          <li>Competed in a challenge to develop a 3D digital house in Autodesk Revit.</li>
+          <li>Gained technical experience in 2D engineering drawing in AutoCAD and 3D conceptual design in Revit.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="tabs" role="group" aria-label="Skill categories">
+      <button class="chip" type="button" data-s="prog" aria-pressed="true">Programming</button>
+      <button class="chip" type="button" data-s="cad" aria-pressed="false">3D CAD and prototyping</button>
+      <button class="chip" type="button" data-s="pers" aria-pressed="false">Personal</button>
+      <button class="chip" type="button" data-s="lang" aria-pressed="false">Languages</button>
+    </div>
+    <div class="panel skillbox" id="skillbox" aria-live="polite"></div>
+  </section>
+
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <div class="cert">
+      <div class="panel"><h3>Google Data Analytics Professional Certificate</h3><p>Training in data analysis using software such as Python and SQL.</p></div>
+      <div class="panel"><h3>WHMIS</h3><p>Training in handling and awareness of workplace hazardous materials.</p></div>
+      <div class="panel"><h3>MATLAB</h3><p>Training in using MATLAB for problem solving and data analysis.</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="tb">
+      <div class="wide"><small>Name</small>Neekon K Eghdami</div>
+      <div><small>Location</small>Calgary, AB</div>
+      <div class="wide"><small>Email</small><a href="mailto:neekoneghdami@gmail.com">neekoneghdami@gmail.com</a><br><button class="btn ghost" id="copyMail2" type="button">Copy email</button></div>
+      <div><small>Licence</small>Valid Alberta Class 5</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Neekon K Eghdami. Mechanical Engineering, University of Alberta.</div></footer>
+
+<script>
+/* Skills */
+const skills={
+  prog:["Python","SQL","Data Ethics","Data Structures","Object Oriented Programming"],
+  cad:["AutoCAD","Autodesk Revit","Construction Drawing"],
+  pers:["Time Management","Problem Solving","Teamwork"],
+  lang:["English","Farsi"]
+};
+const box=document.getElementById("skillbox");
+function showSkills(k){box.innerHTML=skills[k].map(s=>"<span>"+s+"</span>").join("")}
+showSkills("prog");
+function group(sel,attr,fn){
+  const btns=document.querySelectorAll(sel+" .chip");
+  btns.forEach(b=>b.addEventListener("click",()=>{
+    btns.forEach(x=>x.setAttribute("aria-pressed",x===b));
+    fn(b.dataset[attr]);
+  }));
+}
+group(".tabs","s",showSkills);
+group(".filters","f",f=>{
+  document.querySelectorAll(".timeline details").forEach(d=>{
+    d.hidden=!(f==="all"||d.dataset.t===f);
+  });
+});
+
+/* Copy email */
+["copyMail","copyMail2"].forEach(id=>{
+  const b=document.getElementById(id), label=b.textContent;
+  b.addEventListener("click",async()=>{
+    const mail="neekoneghdami@gmail.com";
+    try{await navigator.clipboard.writeText(mail);b.textContent="Copied";}
+    catch(e){b.textContent=mail;}
+    setTimeout(()=>b.textContent=label,2000);
+  });
+});
+
+/* Gears */
+function gear(r,n,h){
+  const s=2*Math.PI/n, p=(rad,a)=>(rad*Math.cos(a)).toFixed(1)+" "+(rad*Math.sin(a)).toFixed(1);
+  let d="M"+p(r,0);
+  for(let i=0;i<n;i++){
+    const a=i*s;
+    d+="L"+p(r,a+.02*s)+"L"+p(r+h,a+.14*s)+"L"+p(r+h,a+.36*s)+"L"+p(r,a+.48*s);
+  }
+  return d+"Z";
+}
+const rA=90,nA=18,rB=45,nB=9,h=12;
+const A=document.getElementById("gA"),B=document.getElementById("gB");
+const ax=110,ay=125,bx=ax+rA+rB+h-2;
+function build(g,cx,cy,r,n,holes){
+  g.setAttribute("transform","translate("+cx+" "+cy+")");
+  g.innerHTML='<g><path d="'+gear(r,n,h)+'"/><circle r="'+(r*.16)+'"/>'+holes+'</g>';
+  return g.firstChild;
+}
+let holesA="";
+for(let i=0;i<5;i++){const a=i*Math.PI*2/5;holesA+='<circle cx="'+(48*Math.cos(a)).toFixed(1)+'" cy="'+(48*Math.sin(a)).toFixed(1)+'" r="10"/>';}
+const rotA=build(A,ax,ay,rA,nA,holesA), rotB=build(B,bx,ay,rB,nB,'<circle r="0.1"/>');
+const stepA=360/nA, stepB=360/nB, offA=-0.75*stepA, offB=180-0.25*stepB;
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let ticking=false;
+function spin(){
+  const t=still?0:window.scrollY*0.25;
+  rotA.setAttribute("transform","rotate("+(offA+t)+")");
+  rotB.setAttribute("transform","rotate("+(offB-2*t)+")");
+  ticking=false;
+}
+addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(spin)}},{passive:true});
+spin();
+</script>
+</body>
+</html>
