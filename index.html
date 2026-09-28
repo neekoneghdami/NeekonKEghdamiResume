@@ -62,16 +62,22 @@ h2{font:700 1.7rem/1.15 var(--head);letter-spacing:-.01em;margin-bottom:22px}
 
 /* timeline */
 .tl{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:20px 22px 14px}
-.row{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:14px;width:100%;background:none;border:0;text-align:left;padding:8px 6px;border-radius:6px}
-.row:hover{background:var(--paper)}
+.row{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:14px;width:100%;background:none;border:1px solid var(--rule);text-align:left;padding:8px 10px;border-radius:8px}
+.row+.row{margin-top:6px}
+.row .n::after{content:" \203A";color:var(--green);font-weight:700}
+.row:hover{background:var(--paper);border-color:var(--green)}
+.row[aria-pressed="true"]{border-color:var(--green)}
 .row .n{font-weight:500;font-size:.93rem;line-height:1.25}
 .track{position:relative;height:22px}
 .bar{position:absolute;top:2px;height:18px;min-width:12px;border-radius:9px;background:#9fcbb5;transition:background .2s}
 .row[aria-pressed="true"]{background:var(--soft)}
 .row[aria-pressed="true"] .bar{background:var(--green)}
-.axis{position:relative;height:26px;margin-left:164px;border-top:1px solid var(--rule)}
+.axis{position:relative;height:26px;margin-left:175px;border-top:1px solid var(--rule)}
 .axis span{position:absolute;top:4px;transform:translateX(-50%);font-size:.85rem;color:var(--mute)}
 .axis i{position:absolute;top:-1px;height:7px;border-left:1px solid var(--mute)}
+.hint{color:var(--mute);font-size:.97rem;margin-bottom:12px}
+.dnav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)}
+.dnav span{color:var(--mute);font-size:.95rem}
 .detail{margin-top:18px;background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--green);border-radius:10px;padding:22px 26px}
 .detail h3{font:700 1.35rem/1.2 var(--head)}
 .detail .m{color:var(--mute);font-size:.95rem;margin:4px 0 12px}
@@ -98,7 +104,7 @@ h2{font:700 1.7rem/1.15 var(--head);letter-spacing:-.01em;margin-bottom:22px}
   main{padding:40px 24px 56px}
   .skills div{grid-template-columns:1fr;gap:8px}
   .row{grid-template-columns:1fr;gap:2px}
-  .axis{margin-left:6px}
+  .axis{margin-left:11px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{transition:none}section:not([hidden]){animation:none}}
 @media print{
@@ -153,6 +159,7 @@ h2{font:700 1.7rem/1.15 var(--head);letter-spacing:-.01em;margin-bottom:22px}
 
   <section id="experience" role="tabpanel" aria-labelledby="tab-experience" tabindex="0">
     <h2>Experience and development</h2>
+    <p class="hint">Select an experience below, or use the Previous and Next buttons under the details.</p>
     <div class="tl" id="tl" role="group" aria-label="Timeline, select an entry to see details"></div>
     <div class="detail" id="detail" aria-live="polite"></div>
   </section>
@@ -212,10 +219,15 @@ const items=[
     "Built practical skills in MATLAB for engineering calculations, problem solving, and data analysis."]}
 ];
 const tl=document.getElementById("tl"), det=document.getElementById("detail");
+let cur=0;
 function pick(i){
+  cur=i;
   tl.querySelectorAll(".row").forEach((r,k)=>r.setAttribute("aria-pressed",k===i));
-  const it=items[i];
-  det.innerHTML="<h3>"+it.n+"</h3><p class='m'>"+it.type+" | "+it.dates+"</p><ul>"+it.b.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+  const it=items[i], n=items.length;
+  det.innerHTML="<h3>"+it.n+"</h3><p class='m'>"+it.type+" | "+it.dates+"</p><ul>"+it.b.map(x=>"<li>"+x+"</li>").join("")+"</ul>"+
+    "<div class='dnav'><button type='button' class='act' id='prevX'>Previous</button><span>"+(i+1)+" of "+n+"</span><button type='button' class='act fill' id='nextX'>Next</button></div>";
+  document.getElementById("prevX").addEventListener("click",()=>pick((cur-1+n)%n));
+  document.getElementById("nextX").addEventListener("click",()=>pick((cur+1)%n));
 }
 items.forEach((it,i)=>{
   const r=document.createElement("button");
